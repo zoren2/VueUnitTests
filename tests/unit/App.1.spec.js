@@ -8,8 +8,9 @@ describe('App.vue', () => { // Renders this in the terminal as a "Title"
         const vm = new Constructor().$mount();
 
         // Think of expect as assertions,
-        // querySelector() is a native JS method
+        // The querySelector() method is native JS
         // vm.$el is the root DOM element that the Vue instance is managing.
+        // .to.contain will check the element DOM element text 'to contain' given string.
         expect(
             vm.$el.querySelector('.ui.selectable thead tr th').textContent
         ).to.contain('Items');
@@ -23,9 +24,9 @@ describe('App.vue', () => { // Renders this in the terminal as a "Title"
 
     // Checks the Vue lifecycle to make sure the shopping list starts off empty.
     it('should set correct default data', () => {
-        const initialData = App.data();
+        const initialData = App.data(); // Returns data in key value pairs
 
         expect(initialData.item).to.equal('');
-        expect(initialData.items).to.deep.equal([]);
+        expect(initialData.items).to.deep.equal([]); // Checks for equivalence, not identical
     });
 });
